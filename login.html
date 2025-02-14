@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Product Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f0f0, #c0c0c0);
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1920x1080?product,1') no-repeat center center/cover;
+            animation: cycleBackground 15s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes cycleBackground {
+            0% {
+                background-image: url('https://source.unsplash.com/random/1920x1080?product,1');
+            }
+            25% {
+                background-image: url('https://source.unsplash.com/random/1920x1080?product,2');
+            }
+            50% {
+                background-image: url('https://source.unsplash.com/random/1920x1080?product,3');
+            }
+            75% {
+                background-image: url('https://source.unsplash.com/random/1920x1080?product,4');
+            }
+            100% {
+                background-image: url('https://source.unsplash.com/random/1920x1080?product,5');
+            }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+    
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">
+            <p><a href="#">Forgot Password?</a></p>
+            <p><a href="#">Create an Account</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
