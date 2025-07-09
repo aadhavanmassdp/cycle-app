@@ -53,33 +53,6 @@ PORT=5000
 
 
 
-Run the Application:
-
-Start the backend server:cd server
-npm start
-
-
-Start the frontend development server:cd client
-npm start
-
-
-The website will be accessible at http://localhost:3000 (frontend) and http://localhost:5000 (backend API).
-
-
-
-Project Structure
-cycleworks-ecommerce/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable React components (e.g., ProductCard, Cart)
-│   │   ├── pages/          # Page components (e.g., Home, ProductDetails)
-│   │   └── assets/         # Images, icons, etc.
-├── server/                 # Node.js/Express backend
-│   ├── routes/             # API routes (e.g., products, users, orders)
-│   ├── models/             # MongoDB schemas (e.g., Product, User)
-│   └── controllers/        # Business logic for API endpoints
-└── README.md               # Project documentation
-
 Usage
 
 Browse Products: Navigate to the homepage to view available cycles and accessories.
@@ -100,5 +73,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Contact
 For questions or support, contact the project maintainer at:
 
-Email: support@cycleworks.com
-GitHub: your-username
+Email: aadthiyaa@gmail.com
+GitHub: https://github.com/aadhavanmassdp/cycle-app/
