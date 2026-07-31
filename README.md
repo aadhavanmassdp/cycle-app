@@ -6,7 +6,7 @@ A complete single‑page application (SPA) for an online bicycle store, built wi
 
 ## 🚀 Live Demo
 
-> [Open the live site](#) – *replace with your hosted URL*
+> [Open the live site](https://cycle-app-delta.vercel.app/) – *replace with your hosted URL*
 
 ---
 
