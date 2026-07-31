@@ -157,7 +157,7 @@ This project is open‑source and available under the **MIT License**. You are f
 ## 📬 Contact
 
 **Suriyadev Cycles**  
-Email: [suriya@example.com]  
+Email: aadthiyaa@gmail.com  
 GitHub: [@your-username](https://github.com/your-username)
 
 ---
