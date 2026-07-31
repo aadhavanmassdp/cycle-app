@@ -1,123 +1,1744 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV CYCLE Exports</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suriyadev Cycles – Premium Bicycles</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <!-- QR CODE LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+    </script>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* ─── Reset & Base ─── */
+        * {
             margin: 0;
-            padding: 10px;
-        }
-
-        header {
-            background-color: #0897f5;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        nav {
-            background-color: #444;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
             padding: 0;
-            margin: 0;
+            box-sizing: border-box;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f5fa;
+            color: #00171f;
+            padding-top: 76px;
         }
 
-        nav a {
-            color: #CCC;
-            text-decoration: none;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
-
-        main {
-            padding: 20px;
+        ::-webkit-scrollbar-track {
+            background: #e6edf4;
         }
-
-        .login-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 30px;
-            border: 1px solid #ccc;
+        ::-webkit-scrollbar-thumb {
+            background: #00a7e1;
             border-radius: 10px;
-            background-color: #f9f9f9;
-            text-align: center;
         }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        /* ─── Navbar ─── */
+        .navbar-custom {
+            background: #ffffff !important;
+            box-shadow: 0 2px 20px rgba(0, 23, 31, 0.08);
+            padding: 12px 0;
         }
 
-        button {
-            padding: 10px 20px;
-            background-color: #0897f5;
-            border: none;
-            color: white;
-            border-radius: 5px;
+        .navbar-custom .navbar-brand {
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: #00171f;
+            letter-spacing: -0.5px;
             cursor: pointer;
         }
 
-        footer {
-            background-color: #123456;
-            color: #f9f1f1;
+        .navbar-custom .navbar-brand i {
+            color: #00a7e1;
+            margin-right: 8px;
+        }
+
+        .navbar-custom .nav-link {
+            font-weight: 500;
+            color: #003459;
+            padding: 0 18px !important;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #00a7e1;
+        }
+
+        .navbar-custom .btn-outline-primary {
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-weight: 500;
+            border-color: #00a7e1;
+            color: #00a7e1;
+        }
+
+        .navbar-custom .btn-outline-primary:hover {
+            background: #00a7e1;
+            color: #fff;
+        }
+
+        .navbar-custom .btn-primary {
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-weight: 500;
+            background: #00a7e1;
+            border-color: #00a7e1;
+        }
+
+        .navbar-custom .btn-primary:hover {
+            background: #0088b8;
+            border-color: #0088b8;
+        }
+
+        .cart-badge {
+            background: #00a7e1;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 9px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        .navbar-custom .auth-buttons .btn {
+            margin-left: 8px;
+        }
+
+        /* ─── Pages ─── */
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+            padding-bottom: 40px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ─── Hero (Home) ─── */
+        .hero-section {
+            background: linear-gradient(135deg, #e3f0fa 0%, #c5dff0 100%);
+            padding: 60px 0 50px;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-weight: 700;
+            font-size: 3.2rem;
+            color: #00171f;
+            line-height: 1.2;
+        }
+
+        .hero-section h1 span {
+            color: #00a7e1;
+        }
+
+        .hero-section p {
+            font-size: 1.15rem;
+            color: #003459;
+            max-width: 480px;
+        }
+
+        .hero-section .btn-primary {
+            border-radius: 50px;
+            padding: 14px 40px;
+            font-weight: 600;
+            background: #00a7e1;
+            border: none;
+            box-shadow: 0 8px 24px rgba(0, 167, 225, 0.35);
+            transition: all 0.25s;
+        }
+
+        .hero-section .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 167, 225, 0.45);
+            background: #0088b8;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 23, 31, 0.10));
+        }
+
+        /* ─── Filter Card (Shop) ─── */
+        .filter-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 30px;
+            box-shadow: 0 4px 24px rgba(0, 23, 31, 0.04);
+            border: 1px solid #e2eaf2;
+            margin-bottom: 32px;
+        }
+
+        .filter-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #00171f;
+            letter-spacing: 0.3px;
+        }
+
+        .filter-card .form-select {
+            border-radius: 12px;
+            border: 1px solid #d6e0e8;
+            padding: 10px 16px;
+            font-size: 0.95rem;
+            background-color: #f8fafc;
+            cursor: pointer;
+        }
+
+        .filter-card .form-select:focus {
+            border-color: #00a7e1;
+            box-shadow: 0 0 0 3px rgba(0, 167, 225, 0.15);
+        }
+
+        /* ─── Rating Range ─── */
+        .rating-range-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .rating-range-wrapper input[type="range"] {
+            flex: 1;
+            min-width: 160px;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #d6e0e8;
+            border-radius: 10px;
+            outline: none;
+            transition: background 0.2s;
+        }
+
+        .rating-range-wrapper input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00a7e1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 167, 225, 0.35);
+            border: 2px solid #fff;
+            transition: 0.15s;
+        }
+
+        .rating-range-wrapper input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.12);
+        }
+
+        .rating-range-wrapper input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #00a7e1;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0, 167, 225, 0.35);
+        }
+
+        .rating-display {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef4f9;
+            padding: 6px 18px 6px 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #00171f;
+            white-space: nowrap;
+        }
+
+        .rating-display i {
+            color: #f6b83e;
+            font-size: 1.1rem;
+        }
+
+        .rating-display .rating-value {
+            min-width: 36px;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 30px;
+        }
+
+        /* ─── Product Grid ─── */
+        .product-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 20px 18px 22px;
+            box-shadow: 0 2px 16px rgba(0, 23, 31, 0.04);
+            border: 1px solid #e2eaf2;
+            transition: all 0.25s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 23, 31, 0.07);
+            border-color: #c5d8e6;
+        }
+
+        .product-card .product-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            padding: 10px 6px;
+            background: #f5f9fc;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.02);
+        }
+
+        .product-card .product-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #00171f;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .product-card .product-category {
+            font-size: 0.8rem;
+            color: #007ea7;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 6px;
+        }
+
+        .product-card .product-price {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #00171f;
+            margin-top: auto;
+            padding-top: 10px;
+        }
+
+        .product-card .product-price small {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #007ea7;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .product-card .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            color: #003459;
+            margin-top: 4px;
+        }
+
+        .product-card .product-rating .stars {
+            letter-spacing: 1px;
+        }
+
+        .product-card .product-rating .count {
+            color: #007ea7;
+            font-size: 0.8rem;
+        }
+
+        .product-card .btn-add {
+            border-radius: 50px;
+            padding: 8px 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            width: 100%;
+            margin-top: 14px;
+            background: #ebf5fb;
+            color: #00a7e1;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .product-card .btn-add:hover {
+            background: #00a7e1;
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(0, 167, 225, 0.30);
+        }
+
+        .product-card .badge-stock {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #e3f5e3;
+            color: #00753b;
+            font-weight: 600;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            border: 1px solid #b8dbb8;
+        }
+
+        .product-card .badge-stock.out {
+            background: #fde8e8;
+            color: #b34141;
+            border-color: #f5c8c8;
+        }
+
+        /* ─── No results ─── */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #007ea7;
+        }
+
+        .no-results i {
+            font-size: 3.4rem;
+            color: #c5d8e6;
+            margin-bottom: 16px;
+        }
+
+        .no-results h4 {
+            color: #00171f;
+            font-weight: 600;
+        }
+
+        /* ─── Auth Pages ─── */
+        .auth-page {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .auth-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 48px 40px;
+            box-shadow: 0 12px 48px rgba(0, 23, 31, 0.06);
+            border: 1px solid #e2eaf2;
+            max-width: 460px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .auth-card .auth-title {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #00171f;
+            margin-bottom: 8px;
+        }
+
+        .auth-card .auth-subtitle {
+            color: #007ea7;
+            margin-bottom: 28px;
+        }
+
+        .auth-card .form-control {
+            border-radius: 14px;
+            padding: 14px 18px;
+            border: 1px solid #d6e0e8;
+            font-size: 0.95rem;
+        }
+
+        .auth-card .form-control:focus {
+            border-color: #00a7e1;
+            box-shadow: 0 0 0 3px rgba(0, 167, 225, 0.12);
+        }
+
+        .auth-card .btn-primary {
+            border-radius: 50px;
+            padding: 12px;
+            font-weight: 600;
+            width: 100%;
+            background: #00a7e1;
+            border: none;
+        }
+
+        .auth-card .btn-primary:hover {
+            background: #0088b8;
+        }
+
+        .auth-card .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .auth-card .btn-outline-primary {
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 500;
+        }
+
+        .auth-link {
+            color: #00a7e1;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .auth-link:hover {
+            text-decoration: underline;
+            color: #0088b8;
+        }
+
+        /* ─── OTP Modal ─── */
+        .otp-modal .modal-content {
+            border-radius: 24px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 23, 31, 0.12);
+            padding: 8px 4px;
+        }
+
+        .otp-modal .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .otp-modal .modal-body {
+            padding: 24px 32px 32px;
+        }
+
+        .otp-modal .modal-title {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #00171f;
+        }
+
+        .otp-modal .otp-code-display {
+            background: #ebf5fb;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin: 16px 0 20px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: #00171f;
+            font-family: 'Courier New', monospace;
+            border: 2px dashed #c5d8e6;
+        }
+
+        .otp-modal .otp-code-display .label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #007ea7;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .otp-modal .otp-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .otp-modal .otp-input-group .form-control {
+            flex: 1;
+            min-width: 140px;
+            border-radius: 14px;
+            padding: 14px 18px;
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        .otp-modal .otp-input-group .btn {
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-weight: 600;
+        }
+
+        .otp-modal .otp-status {
+            font-size: 0.9rem;
+            margin-top: 12px;
+            padding: 8px 0;
+        }
+
+        .otp-modal .otp-status.success {
+            color: #00753b;
+        }
+        .otp-modal .otp-status.error {
+            color: #d9534f;
+        }
+        .otp-modal .otp-status.info {
+            color: #00a7e1;
+        }
+
+        /* ─── Blog Page ─── */
+        .blog-header {
+            background: #ffffff;
+            padding: 40px 0 30px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 20px rgba(0, 23, 31, 0.02);
+            margin-bottom: 30px;
+        }
+
+        .blog-header h2 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: #00171f;
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 30px;
+            border: 1px solid #e2eaf2;
+            margin-bottom: 24px;
+            transition: box-shadow 0.2s;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 23, 31, 0.04);
+        }
+
+        .blog-card h4 {
+            font-weight: 600;
+            color: #00171f;
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            color: #003459;
+            line-height: 1.6;
+        }
+
+        .blog-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .blog-card ul li {
+            padding: 6px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #003459;
+        }
+
+        .blog-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00a7e1;
+            font-weight: 700;
+        }
+
+        /* ─── Footer ─── */
+        .footer-custom {
+            background: #ffffff;
+            border-top: 1px solid #e2eaf2;
+            padding: 40px 0 30px;
+            margin-top: 50px;
+        }
+
+        .footer-custom h6 {
+            font-weight: 700;
+            color: #00171f;
+            margin-bottom: 16px;
+        }
+
+        .footer-custom a {
+            color: #007ea7;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-custom a:hover {
+            color: #00a7e1;
+        }
+
+        .footer-custom .social-icons a {
+            font-size: 1.4rem;
+            color: #007ea7;
+            margin-right: 18px;
+            transition: color 0.2s;
+        }
+
+        .footer-custom .social-icons a:hover {
+            color: #00a7e1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2eaf2;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #007ea7;
+            text-align: center;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .hero-section {
+                padding: 40px 0 30px;
+            }
+            .filter-card {
+                padding: 20px;
+            }
+            .rating-range-wrapper {
+                flex-wrap: wrap;
+            }
+            .rating-range-wrapper input[type="range"] {
+                min-width: 120px;
+            }
+            .auth-card {
+                padding: 32px 24px;
+            }
+            .otp-modal .modal-body {
+                padding: 16px 20px 24px;
+            }
+            .otp-modal .otp-code-display {
+                font-size: 1.6rem;
+                letter-spacing: 4px;
+                padding: 16px;
+            }
+            .blog-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-custom .navbar-brand {
+                font-size: 1.3rem;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .product-card .product-title {
+                font-size: 0.95rem;
+            }
+            .auth-card {
+                padding: 24px 16px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>DEV Cycle Exports</h1>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="pro2.html">Products</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <div class="login-container">
-            <h2>Login to Your Account</h2>
-            <form id="loginForm">
-                <input type="text" placeholder="Username" required><br>
-                <input type="password" placeholder="Password" required><br>
-                <button type="submit">Login</button>
-            </form>
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" onclick="navigateTo('homePage')">
+                <i class="bi bi-bicycle"></i> Suriyadev Cycles
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" data-page="homePage" onclick="navigateTo('homePage')">Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-page="shopPage" onclick="navigateTo('shopPage')">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" data-page="blogPage" onclick="navigateTo('blogPage')">Blog</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-2 auth-buttons" id="authButtons">
+                <!-- Dynamic content managed by JS -->
+                <button class="btn btn-outline-primary btn-sm" data-page="loginPage" onclick="navigateTo('loginPage')">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </button>
+                <button class="btn btn-primary btn-sm" data-page="registerPage" onclick="navigateTo('registerPage')">
+                    <i class="bi bi-person-plus"></i> Register
+                </button>
+                <a href="https://q.me-qr.com/vks4u37k" class="btn btn-primary btn-sm" target="_blank">
+                    <i class="bi bi-cart3"></i> <span class="cart-badge">2</span>
+                </a>
+            </div>
         </div>
-    </main>
+    </div>
+</nav>
 
-    <footer>
-        <p>&copy; 2023 Cycle Exports. All Rights Reserved.</p>
-    </footer>
+<!-- ══════════════════════════════════════ -->
+<!-- ═══  PAGES  ═══ -->
+<!-- ══════════════════════════════════════ -->
+<main>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Stop form submission
-            alert("Login successfully!");
-            window.location.href = "pro2.html"; // Redirect to Products page
+    <!-- ─── HOME PAGE ─── -->
+    <section id="homePage" class="page active">
+        <div class="hero-section">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-6">
+                        <h1>Ride the <span>future</span> <br />on two wheels.</h1>
+                        <p class="mt-3">Premium bicycles engineered for performance, comfort, and style. Find your perfect ride today.</p>
+                        <button class="btn btn-primary mt-2" onclick="navigateTo('shopPage')">
+                            <i class="bi bi-arrow-right"></i> Explore Bikes
+                        </button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=600&h=400&fit=crop&crop=center&auto=format"
+                        alt="Bicycle hero" class="hero-image img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h3 class="fw-bold mb-4">⚡ Featured Bikes</h3>
+            <div class="row g-4" id="featuredGrid">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SHOP PAGE ─── -->
+    <section id="shopPage" class="page">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-card">
+                <div class="row align-items-center g-3">
+                    <div class="col-md-3 col-6">
+                        <label for="categoryFilter" class="form-label mb-1"><i class="bi bi-tags"></i> Category</label>
+                        <select id="categoryFilter" class="form-select form-select-sm">
+                            <option value="all">All Bicycles</option>
+                            <option value="road">Road</option>
+                            <option value="mountain">Mountain</option>
+                            <option value="electric">Electric</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="kids">Kids</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <label for="sortFilter" class="form-label mb-1"><i class="bi bi-arrow-up-down"></i> Sort</label>
+                        <select id="sortFilter" class="form-select form-select-sm">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low → High</option>
+                            <option value="price-high">Price: High → Low</option>
+                            <option value="rating">Rating: High → Low</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label mb-1"><i class="bi bi-star-fill" style="color:#f6b83e;"></i> Min. Rating</label>
+                        <div class="rating-range-wrapper">
+                            <input type="range" id="ratingRange" min="0" max="5" step="0.1" value="0" />
+                            <div class="rating-display">
+                                <i class="bi bi-star-fill"></i>
+                                <span class="rating-value" id="ratingDisplay">0.0</span>
+                                <span style="color:#007ea7;font-weight:400;">&amp; up</span>
+                            </div>
+                            <button id="resetFiltersBtn" class="btn btn-outline-secondary btn-sm" style="border-radius:50px;padding:4px 18px;">
+                                <i class="bi bi-arrow-counterclockwise"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+                <span id="resultCount" class="text-muted" style="font-weight:500;">Showing 0 products</span>
+                <span id="activeFilters" class="text-muted small"></span>
+            </div>
+
+            <div class="row g-4" id="productGrid">
+                <!-- Cards injected by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── BLOG PAGE ─── -->
+    <section id="blogPage" class="page">
+        <div class="blog-header">
+            <div class="container">
+                <h2><i class="bi bi-pencil-square" style="color:#00a7e1;"></i> E‑Commerce Insights</h2>
+                <p class="text-muted">Learn how our platform delivers a seamless shopping experience.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="blog-card">
+                <h4>🚀 Why Our E‑Commerce App Stands Out</h4>
+                <p>We’ve built a full‑featured online store that combines performance, security, and user‑centric design. Here are the core pillars:</p>
+                <ul>
+                    <li><strong>User Authentication</strong> – Secure login &amp; registration with OTP verification to protect your account.</li>
+                    <li><strong>Dynamic Product Catalog</strong> – Real‑time filtering, sorting, and rating based on your preferences.</li>
+                    <li><strong>Responsive &amp; Fast</strong> – Built with Bootstrap and optimised for all devices, ensuring a smooth experience.</li>
+                    <li><strong>Interactive UI</strong> – Instant feedback on actions (add to cart, subscribe, OTP popups) keeps you informed.</li>
+                    <li><strong>Scalable Architecture</strong> – The single‑page app design makes navigation quick and future‑proof.</li>
+                </ul>
+            </div>
+            <div class="blog-card">
+                <h4>🔒 Secure &amp; Trustworthy</h4>
+                <p>We prioritise your data safety with encrypted OTP flows, password hashing, and a clear privacy policy. Every transaction is simulated to give you peace of mind.</p>
+            </div>
+            <div class="blog-card">
+                <h4>📈 Continuous Improvement</h4>
+                <p>We’re constantly adding new features – from wishlists to order tracking. Your feedback helps us shape the future of Suriyadev Cycles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── LOGIN PAGE ─── -->
+    <section id="loginPage" class="page">
+        <div class="auth-page">
+            <div class="auth-card">
+                <h2 class="auth-title">Welcome Back</h2>
+                <p class="auth-subtitle">Sign in with your email and OTP.</p>
+                <form id="loginForm">
+                    <div class="mb-4">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary w-100 mb-3" id="loginOpenOtpBtn">
+                        <i class="bi bi-envelope-paper"></i> Send OTP
+                    </button>
+
+                    <button type="submit" class="btn btn-primary" id="loginSubmitBtn" disabled>
+                        <i class="bi bi-box-arrow-in-right"></i> Sign In
+                    </button>
+                </form>
+                <div class="text-center mt-4">
+                    <span class="text-muted">Don't have an account? </span>
+                    <span class="auth-link" onclick="navigateTo('registerPage')">Register here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── REGISTER PAGE ─── -->
+    <section id="registerPage" class="page">
+        <div class="auth-page">
+            <div class="auth-card">
+                <h2 class="auth-title">Create Account</h2>
+                <p class="auth-subtitle">Join the Suriyadev Cycles community.</p>
+                <form id="registerForm">
+                    <div class="mb-3">
+                        <label for="regName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="regName" placeholder="John Doe" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="regEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="regPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="regPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="regConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">OTP Verification</label>
+                        <div class="otp-group">
+                            <input type="text" class="form-control" id="regOtpInput" placeholder="Enter 6-digit OTP" maxlength="6" disabled>
+                            <button type="button" class="btn btn-outline-primary" id="regSendOtpBtn">Send OTP</button>
+                            <button type="button" class="btn btn-outline-success" id="regVerifyOtpBtn" disabled>Verify</button>
+                        </div>
+                        <div id="regOtpStatus" class="form-text mt-1"></div>
+                        <input type="hidden" id="regGeneratedOtp" value="">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="registerSubmitBtn" disabled>Register</button>
+                </form>
+                <div class="text-center mt-4">
+                    <span class="text-muted">Already have an account? </span>
+                    <span class="auth-link" onclick="navigateTo('loginPage')">Login here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ═══ OTP POPUP MODAL (for Login) ═══ -->
+<div class="modal fade otp-modal" id="loginOtpModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-shield-lock" style="color:#00a7e1;"></i> OTP Verification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted" id="otpModalEmailInfo">We sent a code to <strong>your@email.com</strong></p>
+
+                <div class="otp-code-display">
+                    <span class="label">Your OTP Code</span>
+                    <span id="otpModalCodeDisplay">••••••</span>
+                </div>
+
+                <div class="otp-input-group">
+                    <input type="text" class="form-control" id="otpModalInput" placeholder="Enter 6-digit code" maxlength="6" autofocus>
+                    <button class="btn btn-primary" id="otpModalVerifyBtn">
+                        <i class="bi bi-check2-circle"></i> Verify
+                    </button>
+                </div>
+
+                <div id="otpModalStatus" class="otp-status info">
+                    <i class="bi bi-info-circle"></i> Enter the code shown above to verify.
+                </div>
+
+                <div class="mt-3 text-center">
+                    <button class="btn btn-link btn-sm text-muted" id="otpModalResendBtn">
+                        <i class="bi bi-arrow-clockwise"></i> Resend OTP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ QR PAYMENT MODAL ═══ -->
+<div class="modal fade" id="qrPaymentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 350px;">
+        <div class="modal-content text-center p-3">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title w-100 fw-bold">Scan to Pay</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="qrPaymentContainer" class="d-flex justify-content-center mb-3"></div>
+                <button id="qrPayedBtn" class="btn btn-success w-100">Payed</button>
+                <div id="qrPaymentStatus" class="mt-2 text-muted small">Click "Payed" after scanning</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer-custom">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h6><i class="bi bi-bicycle" style="color:#00a7e1;"></i> Suriyadev Cycles</h6>
+                <p style="color:#003459;font-size:0.95rem;max-width:260px;">
+                    Your trusted destination for premium bicycles and cycling gear. Ride with confidence.
+                </p>
+                <div class="social-icons mt-2">
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6>Shop</h6>
+                <a onclick="navigateTo('shopPage')">Road</a><br />
+                <a onclick="navigateTo('shopPage')">Mountain</a><br />
+                <a onclick="navigateTo('shopPage')">Electric</a><br />
+                <a onclick="navigateTo('shopPage')">Hybrid</a>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6>Support</h6>
+                <a href="#">FAQ</a><br />
+                <a href="#">Warranty</a><br />
+                <a href="#">Returns</a><br />
+                <a href="#">Contact</a>
+            </div>
+            <div class="col-md-4">
+                <h6>Stay connected</h6>
+                <p style="color:#003459;font-size:0.9rem;">Get the latest drops and exclusive offers.</p>
+                <div class="input-group">
+                    <input type="email" class="form-control form-control-sm" id="subscribeEmail" placeholder="Email address" style="border-radius:50px 0 0 50px;border:1px solid #d6e0e8;" />
+                    <button class="btn btn-primary btn-sm" id="subscribeBtn" style="border-radius:0 50px 50px 0;background:#00a7e1;border:1px solid #00a7e1;">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Suriyadev Cycles. All rights reserved. &nbsp;|&nbsp; Made with <i class="bi bi-heart-fill" style="color:#e53e3e;font-size:0.8rem;"></i> for riders.
+        </div>
+    </div>
+</footer>
+
+<!-- ═══ Bootstrap JS ═══ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ═══  JAVASCRIPT – App Logic  ═══ -->
+<!-- ══════════════════════════════════════════ -->
+<script>
+    (function() {
+        'use strict';
+
+        // ─── State ──────────────────────────────────────────────────
+        let currentUser = null;
+        let loginOtpVerified = false;
+        let regOtpVerified = false;
+        let loginOtpCode = '';
+
+        // ─── Product Data ────────────────────────────────────────────
+        const products = [{
+            id: 1,
+            name: 'AeroSpeed R1',
+            category: 'road',
+            price: 2499,
+            oldPrice: 2999,
+            rating: 4.8,
+            reviews: 142,
+            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 2,
+            name: 'TrailBlazer X9',
+            category: 'mountain',
+            price: 1899,
+            oldPrice: null,
+            rating: 4.6,
+            reviews: 98,
+            image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 3,
+            name: 'E-Volt Pro',
+            category: 'electric',
+            price: 3499,
+            oldPrice: 3999,
+            rating: 4.9,
+            reviews: 76,
+            image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 4,
+            name: 'CityCommute 5',
+            category: 'hybrid',
+            price: 1299,
+            oldPrice: null,
+            rating: 4.3,
+            reviews: 211,
+            image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 5,
+            name: 'KidZ Cruiser 20"',
+            category: 'kids',
+            price: 499,
+            oldPrice: 599,
+            rating: 4.1,
+            reviews: 54,
+            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 6,
+            name: 'Summit Peak S7',
+            category: 'mountain',
+            price: 2199,
+            oldPrice: 2499,
+            rating: 4.7,
+            reviews: 132,
+            image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: false
+        }, {
+            id: 7,
+            name: 'SwiftRoad 2.0',
+            category: 'road',
+            price: 1799,
+            oldPrice: null,
+            rating: 4.5,
+            reviews: 89,
+            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 8,
+            name: 'E-City Glide',
+            category: 'electric',
+            price: 2899,
+            oldPrice: 3199,
+            rating: 4.4,
+            reviews: 67,
+            image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 9,
+            name: 'Hybrid Trekker',
+            category: 'hybrid',
+            price: 1599,
+            oldPrice: 1799,
+            rating: 4.2,
+            reviews: 103,
+            image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 10,
+            name: 'MiniRider 16"',
+            category: 'kids',
+            price: 399,
+            oldPrice: null,
+            rating: 3.9,
+            reviews: 41,
+            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 11,
+            name: 'Ranger XT',
+            category: 'mountain',
+            price: 2799,
+            oldPrice: 3299,
+            rating: 4.9,
+            reviews: 58,
+            image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }, {
+            id: 12,
+            name: 'AeroSpeed R3',
+            category: 'road',
+            price: 3299,
+            oldPrice: null,
+            rating: 4.8,
+            reviews: 96,
+            image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=400&fit=crop&crop=center&auto=format',
+            stock: true
+        }];
+
+        // ─── DOM refs ──────────────────────────────────────────────
+        const grid = document.getElementById('productGrid');
+        const featuredGrid = document.getElementById('featuredGrid');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const sortFilter = document.getElementById('sortFilter');
+        const ratingRange = document.getElementById('ratingRange');
+        const ratingDisplay = document.getElementById('ratingDisplay');
+        const resetBtn = document.getElementById('resetFiltersBtn');
+        const resultCount = document.getElementById('resultCount');
+        const activeFilters = document.getElementById('activeFilters');
+        const authButtons = document.getElementById('authButtons');
+
+        // ─── Subscribe Button ──────────────────────────────────────
+        document.getElementById('subscribeBtn').addEventListener('click', function() {
+            const email = document.getElementById('subscribeEmail').value.trim();
+            if (!email) {
+                alert('⚠️ Please enter your email address.');
+                return;
+            }
+            alert('✅ Subscribed successfully!');
+            document.getElementById('subscribeEmail').value = '';
         });
-    </script>
+
+        // ─── Navigation ──────────────────────────────────────────────
+        window.navigateTo = function(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if (target) target.classList.add('active');
+
+            document.querySelectorAll('.navbar-custom .nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) link.classList.add('active');
+            });
+
+            if (pageId === 'shopPage') renderProducts();
+            if (pageId === 'homePage') renderFeatured();
+
+            if (pageId !== 'loginPage') resetLoginOtp();
+            if (pageId !== 'registerPage') resetRegOtp();
+
+            updateNavbar();
+        };
+
+        // ─── Update Navbar ──────────────────────────────────────────
+        function updateNavbar() {
+            if (currentUser) {
+                authButtons.innerHTML = `
+                    <span class="text-muted small me-2"><i class="bi bi-person-circle"></i> ${currentUser.email}</span>
+                    <button class="btn btn-outline-danger btn-sm" onclick="logoutUser()">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                    <a href="https://q.me-qr.com/vks4u37k" class="btn btn-primary btn-sm" target="_blank">
+                        <i class="bi bi-cart3"></i> <span class="cart-badge">2</span>
+                    </a>
+                `;
+            } else {
+                authButtons.innerHTML = `
+                    <button class="btn btn-outline-primary btn-sm" data-page="loginPage" onclick="navigateTo('loginPage')">
+                        <i class="bi bi-box-arrow-in-right"></i> Login
+                    </button>
+                    <button class="btn btn-primary btn-sm" data-page="registerPage" onclick="navigateTo('registerPage')">
+                        <i class="bi bi-person-plus"></i> Register
+                    </button>
+                    <a href="https://q.me-qr.com/vks4u37k" class="btn btn-primary btn-sm" target="_blank">
+                        <i class="bi bi-cart3"></i> <span class="cart-badge">2</span>
+                    </a>
+                `;
+            }
+        }
+
+        window.logoutUser = function() {
+            currentUser = null;
+            updateNavbar();
+            navigateTo('homePage');
+        };
+
+        // ─── Open QR Payment Modal ────────────────────────────────
+        window.openQRPaymentModal = function(productName) {
+            const container = document.getElementById('qrPaymentContainer');
+            const status = document.getElementById('qrPaymentStatus');
+            const payedBtn = document.getElementById('qrPayedBtn');
+
+            container.innerHTML = '';
+            status.className = 'mt-2 text-muted small';
+            status.textContent = `Scan to pay for "${productName}"`;
+            payedBtn.disabled = false;
+            payedBtn.textContent = 'Payed';
+            payedBtn.classList.remove('btn-primary');
+            payedBtn.classList.add('btn-success');
+
+            new QRCode(container, {
+                text: "https://q.me-qr.com/vks4u37k",
+                width: 200,
+                height: 200,
+                colorDark: "#00171f",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            const modal = new bootstrap.Modal(document.getElementById('qrPaymentModal'));
+            modal.show();
+        };
+
+        // ─── "Payed" Button Handler ────────────────────────────────
+        document.getElementById('qrPayedBtn').addEventListener('click', function() {
+            this.textContent = 'Confirmed!';
+            this.classList.remove('btn-success');
+            this.classList.add('btn-primary');
+            this.disabled = true;
+
+            const status = document.getElementById('qrPaymentStatus');
+            status.className = 'mt-2 text-success fw-bold';
+            status.textContent = '✅ Payment Successful!';
+
+            setTimeout(() => {
+                const modalEl = document.getElementById('qrPaymentModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+            }, 1500);
+        });
+
+        // ─── Render Products ──────────────────────────────────────────
+        function renderProducts() {
+            let result = [...products];
+            const cat = categoryFilter.value;
+            if (cat !== 'all') result = result.filter(p => p.category === cat);
+
+            const minRating = parseFloat(ratingRange.value) || 0;
+            if (minRating > 0) result = result.filter(p => p.rating >= minRating);
+
+            const sort = sortFilter.value;
+            switch (sort) {
+                case 'price-low':
+                    result.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    result.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    result.sort((a, b) => b.rating - a.rating);
+                    break;
+                default:
+                    break;
+            }
+            updateProductUI(result);
+        }
+
+        function updateProductUI(items) {
+            resultCount.textContent = `Showing ${items.length} product${items.length !== 1 ? 's' : ''}`;
+            const catLabel = categoryFilter.options[categoryFilter.selectedIndex]?.text || 'All';
+            const minRating = parseFloat(ratingRange.value) || 0;
+            let filterSummary = [];
+            if (catLabel !== 'All Bicycles') filterSummary.push(`Category: ${catLabel}`);
+            if (minRating > 0) filterSummary.push(`Rating ≥ ${minRating.toFixed(1)}`);
+            activeFilters.textContent = filterSummary.length ? `Filters: ${filterSummary.join(' • ')}` : '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-12">
+                        <div class="no-results">
+                            <i class="bi bi-bicycle"></i>
+                            <h4>No bicycles found</h4>
+                            <p class="text-muted">Try adjusting your filters or rating.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            items.forEach(p => {
+                const stars = renderStars(p.rating);
+                const oldPriceHtml = p.oldPrice ? `<small>$${p.oldPrice}</small>` : '';
+                const stockBadge = p.stock ?
+                    `<span class="badge-stock"><i class="bi bi-check-circle-fill" style="font-size:0.6rem;"></i> In Stock</span>` :
+                    `<span class="badge-stock out"><i class="bi bi-x-circle-fill" style="font-size:0.6rem;"></i> Out of Stock</span>`;
+
+                html += `
+                    <div class="col-sm-6 col-lg-4 col-xl-3">
+                        <div class="product-card">
+                            ${stockBadge}
+                            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy" />
+                            <span class="product-category">${p.category}</span>
+                            <h5 class="product-title">${p.name}</h5>
+                            <div class="product-rating">
+                                <span class="stars">${stars}</span>
+                                <span class="count">(${p.reviews})</span>
+                            </div>
+                            <div class="product-price">
+                                $${p.price} ${oldPriceHtml}
+                            </div>
+                            <button class="btn-add" data-id="${p.id}" data-name="${p.name}" ${!p.stock ? 'disabled style="opacity:0.5;cursor:not-allowed;"' : ''}>
+                                <i class="bi bi-cart-plus"></i> ${p.stock ? 'Add to Cart' : 'Unavailable'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+            document.querySelectorAll('.btn-add').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const name = this.dataset.name;
+                    if (name) {
+                        window.openQRPaymentModal(name);
+                    }
+                });
+            });
+        }
+
+        // ─── Render Featured ──────────────────────────────────────────
+        function renderFeatured() {
+            const featured = products.slice(0, 4);
+            let html = '';
+            featured.forEach(p => {
+                const stars = renderStars(p.rating);
+                html += `
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="product-card">
+                            <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy" />
+                            <span class="product-category">${p.category}</span>
+                            <h5 class="product-title">${p.name}</h5>
+                            <div class="product-rating">
+                                <span class="stars">${stars}</span>
+                                <span class="count">(${p.reviews})</span>
+                            </div>
+                            <div class="product-price">$${p.price}</div>
+                            <button class="btn-add" onclick="openQRPaymentModal('${p.name}')">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            featuredGrid.innerHTML = html;
+        }
+
+        function renderStars(rating) {
+            const full = Math.floor(rating);
+            const half = rating - full >= 0.5 ? 1 : 0;
+            const empty = 5 - full - half;
+            return '★'.repeat(full) + (half ? '☆' : '') + '☆'.repeat(empty);
+        }
+
+        function updateRatingDisplay() {
+            const val = parseFloat(ratingRange.value) || 0;
+            ratingDisplay.textContent = val.toFixed(1);
+        }
+
+        function resetFilters() {
+            categoryFilter.value = 'all';
+            sortFilter.value = 'default';
+            ratingRange.value = '0';
+            updateRatingDisplay();
+            renderProducts();
+        }
+
+        // ─── OTP Helpers ──────────────────────────────────────────────
+        function generateOtp() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
+        // ════════════════════════════════════════════════════════════
+        // ─── LOGIN OTP POPUP ──────────────────────────────────────
+        // ════════════════════════════════════════════════════════════
+
+        const loginOpenOtpBtn = document.getElementById('loginOpenOtpBtn');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const loginEmail = document.getElementById('loginEmail');
+
+        const otpModal = new bootstrap.Modal(document.getElementById('loginOtpModal'));
+        const otpModalCodeDisplay = document.getElementById('otpModalCodeDisplay');
+        const otpModalInput = document.getElementById('otpModalInput');
+        const otpModalVerifyBtn = document.getElementById('otpModalVerifyBtn');
+        const otpModalStatus = document.getElementById('otpModalStatus');
+        const otpModalResendBtn = document.getElementById('otpModalResendBtn');
+        const otpModalEmailInfo = document.getElementById('otpModalEmailInfo');
+
+        function resetLoginOtp() {
+            loginOtpVerified = false;
+            loginSubmitBtn.disabled = true;
+            loginOtpCode = '';
+            otpModalInput.value = '';
+            otpModalStatus.className = 'otp-status info';
+            otpModalStatus.innerHTML = '<i class="bi bi-info-circle"></i> Enter the code shown above to verify.';
+        }
+
+        loginOpenOtpBtn.addEventListener('click', function() {
+            const email = loginEmail.value.trim();
+            if (!email) {
+                alert('⚠️ Please enter your email address first.');
+                loginEmail.focus();
+                return;
+            }
+
+            loginOtpCode = generateOtp();
+            otpModalCodeDisplay.textContent = loginOtpCode;
+            otpModalEmailInfo.innerHTML = `We sent a code to <strong>${email}</strong>`;
+
+            otpModalInput.value = '';
+            otpModalInput.disabled = false;
+            otpModalInput.focus();
+            otpModalVerifyBtn.disabled = false;
+            otpModalStatus.className = 'otp-status info';
+            otpModalStatus.innerHTML = '<i class="bi bi-info-circle"></i> Enter the code shown above to verify.';
+            loginOtpVerified = false;
+            loginSubmitBtn.disabled = true;
+
+            otpModal.show();
+        });
+
+        otpModalVerifyBtn.addEventListener('click', function() {
+            const entered = otpModalInput.value.trim();
+            if (!entered || entered.length !== 6) {
+                otpModalStatus.className = 'otp-status error';
+                otpModalStatus.innerHTML = '<i class="bi bi-x-circle"></i> Please enter a valid 6-digit OTP.';
+                return;
+            }
+
+            if (entered === loginOtpCode) {
+                loginOtpVerified = true;
+                otpModalStatus.className = 'otp-status success';
+                otpModalStatus.innerHTML = '<i class="bi bi-check-circle-fill"></i> OTP verified successfully!';
+                otpModalInput.disabled = true;
+                otpModalVerifyBtn.disabled = true;
+                loginSubmitBtn.disabled = false;
+                setTimeout(() => {
+                    otpModal.hide();
+                }, 800);
+            } else {
+                otpModalStatus.className = 'otp-status error';
+                otpModalStatus.innerHTML = '<i class="bi bi-x-circle"></i> Invalid OTP. Please try again.';
+                otpModalInput.value = '';
+                otpModalInput.focus();
+                loginOtpVerified = false;
+                loginSubmitBtn.disabled = true;
+            }
+        });
+
+        otpModalResendBtn.addEventListener('click', function() {
+            const email = loginEmail.value.trim();
+            if (!email) {
+                otpModalStatus.className = 'otp-status error';
+                otpModalStatus.innerHTML = '<i class="bi bi-x-circle"></i> Email is missing. Please go back and re-enter.';
+                return;
+            }
+            loginOtpCode = generateOtp();
+            otpModalCodeDisplay.textContent = loginOtpCode;
+            otpModalInput.value = '';
+            otpModalInput.disabled = false;
+            otpModalInput.focus();
+            otpModalVerifyBtn.disabled = false;
+            otpModalStatus.className = 'otp-status info';
+            otpModalStatus.innerHTML = '<i class="bi bi-arrow-clockwise"></i> New OTP sent! Enter the code above.';
+            loginOtpVerified = false;
+            loginSubmitBtn.disabled = true;
+        });
+
+        otpModalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                otpModalVerifyBtn.click();
+            }
+        });
+
+        document.getElementById('loginOtpModal').addEventListener('hidden.bs.modal', function() {
+            if (!loginOtpVerified) {
+                loginSubmitBtn.disabled = true;
+            }
+        });
+
+        // ─── REGISTER OTP (inline) ──────────────────────────────────
+
+        const regSendOtpBtn = document.getElementById('regSendOtpBtn');
+        const regVerifyOtpBtn = document.getElementById('regVerifyOtpBtn');
+        const regOtpInput = document.getElementById('regOtpInput');
+        const regGeneratedOtp = document.getElementById('regGeneratedOtp');
+        const regOtpStatus = document.getElementById('regOtpStatus');
+        const registerSubmitBtn = document.getElementById('registerSubmitBtn');
+
+        function resetRegOtp() {
+            regOtpInput.disabled = true;
+            regVerifyOtpBtn.disabled = true;
+            registerSubmitBtn.disabled = true;
+            regOtpVerified = false;
+            regGeneratedOtp.value = '';
+            regOtpStatus.textContent = '';
+            regOtpStatus.className = 'form-text mt-1';
+            regOtpInput.value = '';
+        }
+
+        regSendOtpBtn.addEventListener('click', function() {
+            const email = document.getElementById('regEmail').value.trim();
+            if (!email) {
+                regOtpStatus.textContent = '⚠️ Please enter your email first.';
+                regOtpStatus.className = 'form-text mt-1 text-danger';
+                return;
+            }
+            const otp = generateOtp();
+            regGeneratedOtp.value = otp;
+            alert(`📧 OTP sent to ${email}\nYour verification code is: ${otp}`);
+            regOtpInput.disabled = false;
+            regOtpInput.value = '';
+            regOtpInput.focus();
+            regVerifyOtpBtn.disabled = false;
+            regOtpStatus.textContent = '📨 OTP sent! Enter the code and click Verify.';
+            regOtpStatus.className = 'form-text mt-1 text-primary';
+            regOtpVerified = false;
+            registerSubmitBtn.disabled = true;
+        });
+
+        regVerifyOtpBtn.addEventListener('click', function() {
+            const entered = regOtpInput.value.trim();
+            const generated = regGeneratedOtp.value;
+            if (!entered || entered.length !== 6) {
+                regOtpStatus.textContent = '⚠️ Please enter a valid 6-digit OTP.';
+                regOtpStatus.className = 'form-text mt-1 text-danger';
+                return;
+            }
+            if (entered === generated) {
+                regOtpVerified = true;
+                regOtpStatus.textContent = '✅ OTP verified successfully!';
+                regOtpStatus.className = 'form-text mt-1 text-success';
+                registerSubmitBtn.disabled = false;
+                regVerifyOtpBtn.disabled = true;
+                regOtpInput.disabled = true;
+            } else {
+                regOtpVerified = false;
+                regOtpStatus.textContent = '❌ Invalid OTP. Please try again.';
+                regOtpStatus.className = 'form-text mt-1 text-danger';
+                registerSubmitBtn.disabled = true;
+                regOtpInput.value = '';
+                regOtpInput.focus();
+            }
+        });
+
+        // ─── Auth Form Submissions ──────────────────────────────────
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!loginOtpVerified) {
+                alert('⚠️ Please verify your OTP first using the popup.');
+                return;
+            }
+            const email = loginEmail.value.trim();
+            if (!email) {
+                alert('Please enter your email.');
+                return;
+            }
+            currentUser = { email };
+            updateNavbar();
+            navigateTo('shopPage');
+            this.reset();
+            resetLoginOtp();
+        });
+
+        // Register
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!regOtpVerified) {
+                alert('Please verify your OTP first.');
+                return;
+            }
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const confirm = document.getElementById('regConfirmPassword').value;
+
+            if (!name || !email || !password || !confirm) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            if (password !== confirm) {
+                alert('Passwords do not match.');
+                return;
+            }
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters.');
+                return;
+            }
+
+            currentUser = { email };
+            updateNavbar();
+            navigateTo('shopPage');
+            this.reset();
+            resetRegOtp();
+        });
+
+        // ─── Event listeners for filters ──────────────────────────
+        categoryFilter.addEventListener('change', renderProducts);
+        sortFilter.addEventListener('change', renderProducts);
+        ratingRange.addEventListener('input', function() {
+            updateRatingDisplay();
+            renderProducts();
+        });
+        resetBtn.addEventListener('click', resetFilters);
+
+        // ─── Init ────────────────────────────────────────────────────
+        updateRatingDisplay();
+        renderFeatured();
+        updateNavbar();
+
+        // ─── Handle page load ──────────────────────────────────────
+        window.addEventListener('load', function() {
+            const activePage = document.querySelector('.page.active');
+            if (activePage) {
+                const id = activePage.id;
+                document.querySelectorAll('.navbar-custom .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.page === id) link.classList.add('active');
+                });
+                if (id === 'shopPage') renderProducts();
+                if (id === 'homePage') renderFeatured();
+            }
+        });
+
+        // ─── Expose for debugging ──────────────────────────────────
+        window.__cycleHub = { products, renderProducts, resetFilters };
+
+    })();
+</script>
 
 </body>
 </html>
